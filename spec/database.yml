@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: pg_validations
+  username: postgres
