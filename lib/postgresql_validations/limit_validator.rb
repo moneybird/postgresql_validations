@@ -1,5 +1,7 @@
+require 'active_model'
+
 module PostgresqlValidations
-  class Validator < ActiveModel::Validator
+  class LimitValidator < ActiveModel::Validator
     def validate(record)
       record.class.columns.each do |column|
         case column.type

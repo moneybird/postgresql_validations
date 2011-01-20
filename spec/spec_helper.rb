@@ -1,8 +1,9 @@
 require 'rubygems'
 require 'bundler/setup'
 
-require 'postgresql_validations'
+require 'rails'
 require 'active_record'
+require 'postgresql_validations'
 require 'pg'
 
 ENV['RAILS_ENV'] = 'test'

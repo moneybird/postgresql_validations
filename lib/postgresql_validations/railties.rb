@@ -1,9 +1,12 @@
+require 'postgresql_validations'
+require 'rails'
+
 module PostgresqlValidations
   class Railtie < Rails::Railtie
-    initializer "postgresql_validations.add_validation" do |app|
+    initializer :after_initialize do
       ActiveSupport.on_load(:active_record) do
-        ActiveRecord::Base.send(:include, PostgresqlValidations::Glue)
-      end
+        ActiveRecord::Base.send(:validates_with, PostgresqlValidations::LimitValidator)
+      end      
     end
   end
 end

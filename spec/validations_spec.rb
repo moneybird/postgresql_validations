@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 class Car < ActiveRecord::Base
-  validates_with PostgresqlValidations::Validator
+  validates_with PostgresqlValidations::LimitValidator
 end
 
 describe "PostgreSQL validations" do
