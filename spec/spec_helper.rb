@@ -16,6 +16,7 @@ ActiveRecord::Schema.define do
   create_table :cars, force: true do |table|
     table.integer  :wheels
     table.string   :brand
+    table.integer  :power, limit: 8
     table.timestamps
   end
 end
