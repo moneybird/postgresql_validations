@@ -13,7 +13,7 @@ ActiveRecord::Base.establish_connection('test')
 ActiveRecord::Migration.verbose = false
 
 ActiveRecord::Schema.define do
-  create_table :cars, :force => true do |table|
+  create_table :cars, force: true do |table|
     table.integer  :wheels
     table.string   :brand
     table.timestamps

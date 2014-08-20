@@ -8,7 +8,7 @@ describe "PostgreSQL validations" do
   
   context "for int fields (failure, min value)" do
     before do
-      @car = Car.new(:wheels => -2147483649)
+      @car = Car.new(wheels: -2147483649)
     end
   
     it "should not throw an error" do
@@ -25,7 +25,7 @@ describe "PostgreSQL validations" do
   
   context "for int fields (success, min value)" do
     before do
-      @car = Car.new(:wheels => -2147483648)
+      @car = Car.new(wheels: -2147483648)
     end
   
     it "should not throw an error" do
@@ -42,7 +42,7 @@ describe "PostgreSQL validations" do
   
   context "for int fields (failure, max value)" do
     before do
-      @car = Car.new(:wheels => 2147483648)
+      @car = Car.new(wheels: 2147483648)
     end
   
     it "should not throw an error" do
@@ -59,7 +59,7 @@ describe "PostgreSQL validations" do
   
   context "for int fields (success, max value)" do
     before do
-      @car = Car.new(:wheels => 2147483647)
+      @car = Car.new(wheels: 2147483647)
     end
   
     it "should not throw an error" do
@@ -76,7 +76,7 @@ describe "PostgreSQL validations" do
   
   context "for string fields (failure)" do
     before do
-      @car = Car.new(:brand => (1..256).collect { 'a' })
+      @car = Car.new(brand: (1..256).collect { 'a' })
     end
   
     it "should not throw an error" do
@@ -93,7 +93,7 @@ describe "PostgreSQL validations" do
   
   context "for string fields (success)" do
     before do
-      @car = Car.new(:brand => (1..255).collect { 'a' }.join)
+      @car = Car.new(brand: (1..255).collect { 'a' }.join)
     end
   
     it "should not throw an error" do
