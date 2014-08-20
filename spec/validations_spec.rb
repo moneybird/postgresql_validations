@@ -93,7 +93,7 @@ describe "PostgreSQL validations" do
   
   context "for string fields (success)" do
     before do
-      @car = Car.new(:brand => (1..255).collect { 'a' })
+      @car = Car.new(:brand => (1..255).collect { 'a' }.join)
     end
   
     it "should not throw an error" do
