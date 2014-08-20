@@ -12,14 +12,14 @@ describe "PostgreSQL validations" do
     end
   
     it "should not throw an error" do
-      lambda {
+      expect {
         @car.save!
-      }.should raise_error(ActiveRecord::RecordInvalid)
+      }.to raise_error(ActiveRecord::RecordInvalid)
     end
     
     it "should mark the field as invalid" do
       @car.valid?
-      @car.errors[:wheels].should_not be_empty
+      expect(@car.errors[:wheels]).to_not be_empty
     end
   end
   
@@ -29,14 +29,14 @@ describe "PostgreSQL validations" do
     end
   
     it "should not throw an error" do
-      lambda {
+      expect {
         @car.save!
-      }.should_not raise_error(ActiveRecord::RecordInvalid)
+      }.to_not raise_error
     end
     
     it "should mark the field as invalid" do
       @car.valid?
-      @car.errors[:wheels].should be_empty
+      expect(@car.errors[:wheels]).to be_empty
     end
   end
   
@@ -46,14 +46,14 @@ describe "PostgreSQL validations" do
     end
   
     it "should not throw an error" do
-      lambda {
+      expect {
         @car.save!
-      }.should raise_error(ActiveRecord::RecordInvalid)
+      }.to raise_error(ActiveRecord::RecordInvalid)
     end
     
     it "should mark the field as invalid" do
       @car.valid?
-      @car.errors[:wheels].should_not be_empty
+      expect(@car.errors[:wheels]).to_not be_empty
     end
   end
   
@@ -63,14 +63,14 @@ describe "PostgreSQL validations" do
     end
   
     it "should not throw an error" do
-      lambda {
+      expect {
         @car.save!
-      }.should_not raise_error(ActiveRecord::RecordInvalid)
+      }.to_not raise_error
     end
     
     it "should mark the field as invalid" do
       @car.valid?
-      @car.errors[:wheels].should be_empty
+      expect(@car.errors[:wheels]).to be_empty
     end
   end
   
@@ -80,14 +80,14 @@ describe "PostgreSQL validations" do
     end
   
     it "should not throw an error" do
-      lambda {
+      expect {
         @car.save!
-      }.should raise_error(ActiveRecord::RecordInvalid)
+      }.to raise_error(ActiveRecord::RecordInvalid)
     end
     
     it "should mark the field as invalid" do
       @car.valid?
-      @car.errors[:brand].should_not be_empty
+      expect(@car.errors[:brand]).to_not be_empty
     end
   end
   
@@ -97,14 +97,14 @@ describe "PostgreSQL validations" do
     end
   
     it "should not throw an error" do
-      lambda {
+      expect {
         @car.save!
-      }.should_not raise_error(ActiveRecord::RecordInvalid)
+      }.to_not raise_error
     end
     
     it "should mark the field as invalid" do
       @car.valid?
-      @car.errors[:brand].should be_empty
+      expect(@car.errors[:brand]).to be_empty
     end
   end
   

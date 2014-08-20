@@ -9,7 +9,7 @@ require 'pg'
 ENV['RAILS_ENV'] = 'test'
 
 ActiveRecord::Base.configurations = YAML.load(File.read('spec/database.yml'))
-ActiveRecord::Base.establish_connection('test')
+ActiveRecord::Base.establish_connection(:test)
 ActiveRecord::Migration.verbose = false
 
 ActiveRecord::Schema.define do
