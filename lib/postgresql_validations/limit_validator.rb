@@ -10,11 +10,17 @@ module PostgresqlValidations
           record.errors.add(column.name, :too_long, :count => column.limit) if record[column.name].to_s.length > column.limit
         when :integer
           next if record[column.name].blank?
-          record.errors.add(column.name, :greater_than_or_equal_to, :count => -2147483648) if record[column.name] < -2147483648
-          record.errors.add(column.name, :less_than_or_equal_to, :count => 2147483647) if record[column.name] > 2147483647
+
+          if column.sql_type == "bigint"
+            record.errors.add(column.name, :greater_than_or_equal_to, count: -9223372036854775808) if record[column.name] < -9223372036854775808
+            record.errors.add(column.name, :less_than_or_equal_to, count: 9223372036854775807) if record[column.name] > 9223372036854775807
+          else
+            record.errors.add(column.name, :greater_than_or_equal_to, count: -2147483648) if record[column.name] < -2147483648
+            record.errors.add(column.name, :less_than_or_equal_to, count: 2147483647) if record[column.name] > 2147483647
+          end
         end
       end
     end
   end
-  
+
 end

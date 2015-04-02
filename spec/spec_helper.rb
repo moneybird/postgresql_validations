@@ -16,11 +16,12 @@ ActiveRecord::Schema.define do
   create_table :cars, :force => true do |table|
     table.integer  :wheels
     table.string   :brand
+    table.integer  :power, limit: 8
     table.timestamps
   end
 end
 
 RSpec.configure do |config|
   # some (optional) config here
-  
+
 end
