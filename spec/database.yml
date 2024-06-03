@@ -1,5 +1,5 @@
 test:
-  host: postgresql.service.consul
+  host: postgresql.moneybird.dev
   adapter: postgresql
   database: pg_validations
   username: postgres
